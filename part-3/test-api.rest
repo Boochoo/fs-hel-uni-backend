@@ -19,3 +19,13 @@ Content-Type: application/json
   "name": "Eaasdrmi",
   "number": "12222"
 }
+
+###
+
+POST  https://fullstackopen-be.herokuapp.com/api/persons
+Content-Type: application/json
+
+{
+  "name": "Belete",
+  "number": "12222222"
+}

@@ -5,9 +5,8 @@ const cors = require('cors');
 const app = express();
 
 morgan.token('body', function (req, res) {
-  if (Object.getOwnPropertyNames(req.body).length === 0) return null;
-
-  return JSON.stringify(req.body);
+  const body = JSON.stringify(req.body);
+  return body !== '{}' ? body : '';
 });
 
 // middlewares
@@ -16,8 +15,7 @@ app.use(cors());
 app.use(
   morgan(':method :url :status :res[content-length] - :response-time ms :body')
 );
-
-// app.use(morgan('tiny'));
+app.use(express.static('build'));
 
 let persons = [
   {
