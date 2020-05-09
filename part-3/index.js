@@ -1,10 +1,8 @@
-// const http = require('http');
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
-
-app.use(express.json());
 
 morgan.token('body', function (req, res) {
   if (Object.getOwnPropertyNames(req.body).length === 0) return null;
@@ -12,6 +10,9 @@ morgan.token('body', function (req, res) {
   return JSON.stringify(req.body);
 });
 
+// middlewares
+app.use(express.json());
+app.use(cors());
 app.use(
   morgan(':method :url :status :res[content-length] - :response-time ms :body')
 );
@@ -45,11 +46,6 @@ let persons = [
     id: 12,
   },
 ];
-
-/* const app = http.createServer((req, res) => {
-	res.writeHead(200, {"Content-Type": "text/plain"})
-	res.end("Hello world")
-}) */
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello world!</h1>');
@@ -107,9 +103,6 @@ app.post('/api/persons', (req, res) => {
 
   persons = persons.concat(newPerson);
 
-  /* morgan.token('type', function (req, res) {
-    return req.headers['content-type'];
-  }); */
   res.json(newPerson);
 });
 
@@ -122,7 +115,7 @@ app.get('/info', (req, res) => {
   res.send(infoContent);
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, (req, res) => {
   console.log(`Server running on port ${PORT}`);
