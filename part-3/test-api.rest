@@ -1,3 +1,4 @@
+
 GET http://localhost:3001/api/persons
 
 ###
@@ -16,16 +17,15 @@ POST  http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-  "name": "Eaasdrmi",
+  "name": "Ea",
   "number": "12222"
 }
 
 ###
 
-POST  https://fullstackopen-be.herokuapp.com/api/persons
-Content-Type: application/json
+PUT  http://localhost:3001/api/persons/5eb6e5167a5d8e2bd40c10dc
 
 {
-  "name": "Belete",
+  "name": "Anna",
   "number": "12222222"
 }
