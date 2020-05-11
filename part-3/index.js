@@ -39,12 +39,6 @@ app.post('/api/persons', (req, res, next) => {
       error: `${str}`,
     })
 
-  const isORHAd = Contact.find({}).then((contatcs) => {
-    contatcs.find((c) => c.name !== name)
-  })
-
-  console.log(isORHAd)
-
   const newContact = new Contact({
     name,
     number,
@@ -54,9 +48,7 @@ app.post('/api/persons', (req, res, next) => {
     return flag('missing name')
   } else if (!number) {
     return flag('missing number')
-  } /* else if (nameExists(persons)) {
-    return flag('duplicate name');
-  } */
+  }
 
   newContact
     .save()
@@ -89,8 +81,6 @@ app.delete('/api/persons/:id', (req, res, next) => {
     .catch((error) => next(error))
 })
 
-/* console.log(Contact.find((p) => p.name === 'Davido')); */
-
 app.put('/api/persons/:id', (req, res, next) => {
   const body = req.body
   const { name, number } = body
@@ -106,15 +96,6 @@ app.put('/api/persons/:id', (req, res, next) => {
     .catch((error) => next(error))
 })
 
-/* const infoContent = `
-	<p>Phonebook has info of ${persons.length} people</p>
-	<p>${new Date()}</p>
-`;
-
-app.get('/info', (req, res) => {
-  res.send(infoContent);
-});
- */
 const unkownEndpoint = (req, res) => {
   res.status(404).send({ error: 'unkown endpoint' })
 }
