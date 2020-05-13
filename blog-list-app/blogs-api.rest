@@ -1,0 +1,28 @@
+
+GET http://localhost:3003/api/blogs
+
+###
+
+GET http://localhost:3003/api/blogs/5a3d5da59070081a82a3445
+
+
+###
+
+DELETE  http://localhost:3003/api/blogs/5a422bc61b54a676234d17fc
+
+
+###
+
+POST  http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{"title":"React rocks","author":"Michael Chan","url":"https://reactpatterns.com/"}
+
+###
+
+PUT  http://localhost:3003/api/blogs/5eb6e5167a5d8e2bd40c10dc
+
+{
+  "name": "Anna",
+  "number": "12222222"
+}
