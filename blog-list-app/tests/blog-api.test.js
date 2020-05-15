@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
+
 const app = require('../app')
 const { blogsMockData, blogsInDB, nonExistingId } = require('./test-helper')
+
 const Blog = require('../models/blog')
 
 const api = supertest(app)
@@ -80,6 +82,10 @@ describe('addition of a new blog', () => {
 
     await api
       .post('/api/blogs')
+      .set(
+        'Authorization',
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038'
+      )
       .send(newBlog)
       .expect(200)
       .expect('Content-Type', /application\/json/)
@@ -91,9 +97,9 @@ describe('addition of a new blog', () => {
 
   test('blog with no likes property will have a value 0', async () => {
     const newBlog = {
-      title: 'React is her thang!',
-      author: 'Funu Boochoo',
-      url: 'https://reactpatterns.io/',
+      title: 'Bruh',
+      author: 'Bruhvoaaa',
+      url: 'bruh.fi',
     }
 
     await api.post('/api/blogs').send(newBlog).expect(200)
@@ -110,15 +116,16 @@ describe('addition of a new blog', () => {
 
   test('fails if blog has no title and url', async () => {
     const newBlog = {
-      author: 'Funu Boochoo',
-      likes: 3,
+      _id: '5b422bb71b54b676234d17f8',
+      author: 'Bruhvoaaa',
+      likes: 4,
+      __v: 0,
     }
 
     await api.post('/api/blogs').send(newBlog).expect(400)
 
     const blogs = await blogsInDB()
 
-    expect(blogs).toBeDefined()
     expect(blogs).toHaveLength(blogsMockData.length)
   })
 })
@@ -131,12 +138,9 @@ describe('deletion of a blog', () => {
     await api.delete(`/api/blogs/${blogToDelete.id}`).expect(204)
 
     const blogsAfterDeletion = await blogsInDB()
-
     expect(blogsAfterDeletion).toHaveLength(inititalBlogs.length - 1)
 
     const blogs = blogsAfterDeletion.map((blog) => blog.title)
-
-    expect(blogs).toBeDefined()
     expect(blogs).not.toContain(blogToDelete.title)
   })
 })

@@ -1,4 +1,5 @@
 const Blog = require('../models/blog')
+const User = require('../models/user')
 
 const blogsMockData = [
   {
@@ -60,6 +61,12 @@ const blogsInDB = async () => {
   return blogs.map((blog) => blog.toJSON())
 }
 
+const usersInDB = async () => {
+  const users = await User.find({})
+
+  return users.map((user) => user.toJSON())
+}
+
 const nonExistingId = async () => {
   const blog = new Blog({ content: 'willremovethissoon' })
   await blog.save()
@@ -72,4 +79,5 @@ module.exports = {
   blogsMockData,
   blogsInDB,
   nonExistingId,
+  usersInDB,
 }
