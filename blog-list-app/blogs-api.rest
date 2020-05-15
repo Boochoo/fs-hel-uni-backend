@@ -1,0 +1,91 @@
+
+GET http://localhost:3003/api/blogs
+
+###
+
+GET http://localhost:3003/api/blogs/5ebd3cd8f712b6838bde9b12
+
+###
+
+GET http://localhost:3003/api/blogs/5ebd421571ea2d86051f6465
+
+
+###
+
+DELETE  http://localhost:3003/api/blogs/5ebecde979440c6e58437090
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038 
+
+###
+
+PUT  http://localhost:3003/api/blogs/5ebd421571ea2d86051f6465
+Content-Type: application/json
+
+{
+  "likes": 10,
+  "title": "Bruh",
+  "url": "bruh.fi",
+  "author": "Bruhvoaaa"
+}
+
+### 
+
+
+POST  http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "name": "Ermi",
+  "username": "Ermi",
+  "password": "password"
+}
+
+###
+
+POST  http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "Ermi",
+  "password": "password"
+}
+
+
+### 
+
+POST  http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "Ermi",
+  "password": "password"
+}
+
+### 
+
+POST  http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "password": "selainen", "username": "mluukkai"
+}
+
+### 
+
+post http://localhost:3003/api/blogs 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038
+
+{
+"title": "Bruh", "author": "Bruhvoaaa", "url": "bruh.fi", "likes": 4
+}
+
+###
+
+POST http://localhost:3003/api/blogs 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038 
+
+{
+"title": "Bruh", "author": "Bruhvoaaa", "url": "bruh.fi", "likes": 4
+}
