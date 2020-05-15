@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
-  //  title: String,
-  // url: String,
   title: {
     type: String,
-    // required: true,
+    required: true,
   },
   url: {
     type: String,
-    // required: true,
+    required: true,
   },
-  author: String,
+  author: {
+    type: String,
+    required: true,
+  },
   likes: {
     type: Number,
     default: 0,
@@ -24,7 +25,6 @@ const blogSchema = new mongoose.Schema({
 
 blogSchema.set('toJSON', {
   transform: (document, blogObject) => {
-    // response.likes = response.likes ? response.likes : 0
     blogObject.id = blogObject._id.toString()
 
     delete blogObject._id

@@ -14,11 +14,11 @@ blogsRouter.get('/', async (request, response) => {
 blogsRouter.get('/:id', async (request, response) => {
   const blog = await Blog.findById(request.params.id)
 
-  if (blog) {
-    response.json(blog.toJSON())
-  } else {
+  if (!blog) {
     response.status(404).end()
   }
+
+  response.json(blog.toJSON())
 })
 
 blogsRouter.post('/', async (request, response) => {

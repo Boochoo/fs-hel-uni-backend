@@ -1,7 +1,4 @@
-const jwt = require('jsonwebtoken')
 const logger = require('./logger')
-
-const { SECRET } = require('./config')
 
 const requestLogger = (request, response, next) => {
   logger.info('Method:', request.method)

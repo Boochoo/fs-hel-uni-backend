@@ -58,7 +58,7 @@ describe('view a specific blog', () => {
     expect(body).toEqual(blogToView)
   })
 
-  test('fails with status 404 if note does not exist', async () => {
+  test('fails with status 404 if blog does not exist', async () => {
     const validNonExistingId = await nonExistingId()
 
     await api.get(`/api/blogs/${validNonExistingId}`).expect(404)
@@ -116,10 +116,8 @@ describe('addition of a new blog', () => {
 
   test('fails if blog has no title and url', async () => {
     const newBlog = {
-      _id: '5b422bb71b54b676234d17f8',
       author: 'Bruhvoaaa',
       likes: 4,
-      __v: 0,
     }
 
     await api.post('/api/blogs').send(newBlog).expect(400)
