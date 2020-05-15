@@ -13,9 +13,9 @@ GET http://localhost:3003/api/blogs/5ebd421571ea2d86051f6465
 
 ###
 
-DELETE  http://localhost:3003/api/blogs/5ebd421571ea2d86051f6465
-
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUyMTQ4N30.tmEqs5I4lcW4ZRVQhW_rfajZmvEanr4kodJjdiyiSkI
+DELETE  http://localhost:3003/api/blogs/5ebecde979440c6e58437090
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038 
 
 
 ###
@@ -76,6 +76,16 @@ Content-Type: application/json
 post http://localhost:3003/api/blogs 
 Content-Type: application/json 
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038
+
+{
+"title": "Bruh", "author": "Bruhvoaaa", "url": "bruh.fi", "likes": 4
+}
+
+###
+
+POST http://localhost:3003/api/blogs 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVybWkiLCJpZCI6IjVlYmQzODhkMDBkZTVjODE0OTlhMzY2ZiIsImlhdCI6MTU4OTUzNDAzOH0.A7XzUeRCuVpkPPceVT0B0aVNtKSRJVkiY0bhk0Ez038 
 
 {
 "title": "Bruh", "author": "Bruhvoaaa", "url": "bruh.fi", "likes": 4

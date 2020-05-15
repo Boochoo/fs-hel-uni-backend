@@ -74,10 +74,10 @@ describe('view a specific blog', () => {
 describe('addition of a new blog', () => {
   test('a valid blog list can be added', async () => {
     const newBlog = {
-      title: 'React is her thang!',
-      author: 'Funu Boochoo',
-      url: 'https://reactpatterns.io/',
-      likes: '8',
+      title: 'Bruh',
+      author: 'Bruhvoaaa',
+      url: 'bruh.fi',
+      likes: 4,
     }
 
     await api

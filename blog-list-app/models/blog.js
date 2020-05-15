@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
-  /*  title: String,
-  url: String, */
+  //  title: String,
+  // url: String,
   title: {
     type: String,
     // required: true,

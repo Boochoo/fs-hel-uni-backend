@@ -3,6 +3,7 @@ require('express-async-errors')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 const usersRouter = require('./controllers/users')
 const blogsRouter = require('./controllers/blogs')
@@ -24,6 +25,7 @@ mongoose
   .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => {
     logger.info('connected to MongoDB')
@@ -32,11 +34,11 @@ mongoose
     logger.error('error', error.message)
   })
 
-mongoose.set('useCreateIndex', true)
 mongoose.set('useFindAndModify', false)
 
 app.use(cors())
 app.use(express.json())
+// app.use(bodyParser.json())
 app.use(requestLogger)
 app.use(tokenExtractor)
 
